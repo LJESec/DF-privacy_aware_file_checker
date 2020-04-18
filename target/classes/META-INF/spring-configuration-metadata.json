@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "file",
+      "type": "com.ur.seminar.property.FileStorageProperties",
+      "sourceType": "com.ur.seminar.property.FileStorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "file.database",
+      "type": "java.lang.String",
+      "description": "Description for file.database."
+    },
+    {
+      "name": "file.directory",
+      "type": "java.lang.String",
+      "sourceType": "com.ur.seminar.property.FileStorageProperties"
+    },
+    {
+      "name": "file.download",
+      "type": "java.lang.String",
+      "sourceType": "com.ur.seminar.property.FileStorageProperties"
+    },
+    {
+      "name": "file.upload",
+      "type": "java.lang.String",
+      "sourceType": "com.ur.seminar.property.FileStorageProperties"
+    }
+  ],
+  "hints": []
+}
