@@ -37,8 +37,6 @@ All interaction with the tool is performed via the REST interface. You can use p
 
 ![Usage](/images/usage1.png)
 
-![ File comparison heatmap](/images/img_heat1.png)
-
 
 A logical consistency check of the file comparison process can be triggered by the following steps.
 
