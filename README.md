@@ -56,7 +56,8 @@ cd ~/df-privacy-checker_tools/DF-privacy-checker/
 # Prepare CSV files wherein each line represents the local entropy per 32 Bit blocks
 ./step_01_ent-loop.sh 
 
-# Since the files can have different lengths the following script normalizes the value and performs a cosine similarity measurement
+# Since the files can have different lengths the following script normalizes the values
+# The python script also performs a cosine similarity measurement
 python step_02_transform_and_compare.py
 ```
 
