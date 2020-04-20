@@ -1,4 +1,4 @@
-# privacy_aware_file_checker_for_DF (beta)
+# Privacy_aware_file_checker_for_DF (beta)
 
 This project is a prototypical implementation of an algorithm to perform a privacy check of recovered files during a Digital Forensic Investigation. Since existing approach (e.g.: whitelisting of specific filetypes and reducing the investigation image) can reach their limits the following approach goes into the file-structure of recovered files and decide if they can used for a further investigation.
 Important: This approach requires to have a previously defined set of un-critical data and is focuses on Digital Forensic Investigation in Enterprises.
@@ -33,8 +33,22 @@ The web-service provides the following features:
 
 ## Usage
 
+All interaction with the tool is performed via the REST interface. You can use postman to quiery the API:
+
+![Usage](/images/usage1.png)
+
+![ File comparison heatmap](/images/img_heat1.png)
+
+
 A logical consistency check of the file comparison process can be triggered by the following steps.
 
 As a result a heatmap indicating the similarity of the provided data (from folder “test_data/”) is retrievable via the following Url: http://127.0.0.1:8000/heatmap_file_comparison_d3.html
 
 ![ File comparison heatmap](/images/img_heat1.png)
+
+
+## Technical details
+
+The following class diagram shows the structure of the prototype:
+
+![Class diagram of the prototype](/images/classdiagram.png)
