@@ -38,7 +38,24 @@ All interaction with the tool is performed via the REST interface. You can use p
 ![Usage](/images/usage1.png)
 
 
-A logical consistency check of the file comparison process can be triggered by the following steps.
+A logical consistency check of the file comparison process can be triggered by the following steps:
+
+
+* After the installation move your reference files (e.g.: Business emails containing offers, order confirmations or invoices) into the folder “~/df-privacy-checker_tools/DF-privacy-checker/”
+
+* Move your recovered files for testing into the folder “~/df-privacy-checker_tools/DF-privacy-checker/test_data/”
+
+* Perform the following commands:
+
+```
+cd ~/df-privacy-checker_tools/DF-privacy-checker/
+
+# Prepare CSV files wherein each line represents the local entropy per 32 Bit blocks
+./step_01_ent-loop.sh 
+
+# Since the files can have different lengths the following script normalizes the value and performs a cosine similarity measurement
+python step_02_transform_and_compare.py
+```
 
 As a result a heatmap indicating the similarity of the provided data (from folder “test_data/”) is retrievable via the following Url: http://127.0.0.1:8000/heatmap_file_comparison_d3.html
 
