@@ -1,7 +1,10 @@
 # Privacy_aware_file_checker_for_DF (beta)
 
 This project is a prototypical implementation of an algorithm to perform a privacy check of recovered files during a Digital Forensic Investigation. Since existing approach (e.g.: whitelisting of specific filetypes and reducing the investigation image) can reach their limits the following approach goes into the file-structure of recovered files and decide if they can used for a further investigation.
-Important: This approach requires to have a previously defined set of un-critical data and is focuses on Digital Forensic Investigation in Enterprises.
+
+**Important: This approach requires to have a previously defined set of un-critical data and is focuses on Digital Forensic Investigation in Enterprises.**
+
+*This prototype is under continuous development and should not yet be deployed in a productive environment.*
 
 ## Concept
 
