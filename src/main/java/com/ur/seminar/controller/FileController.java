@@ -81,20 +81,69 @@ public class FileController {
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
         String fileName = fileStorageService.storeFile(file);
 
-        File inputPath = new File("./uploads/" + fileName);
+        //Old File inputPath = new File("./uploads/" + fileName);
+		File inputPath = new File("~/df-privacy-checker_tools/DF-privacy-checker/uploads/" + fileName);
+		String commandexternalcall;
+		
+		
         //File[] inputFiles = inputPath.listFiles();
         //File inputFile = new File;
 
         String outputName;
-       // assert(inputFiles != null);
+			String csvLine = "";
+			String commandexternalcall = "python /home/pseminar/entropie/entropie.py -s 32 -b -m local " + restoredFile.toPath();
+			String s = null;    
+			// assert(inputFiles != null);
         try {
-            Differentiator differentiator = new Differentiator(inputPath,fileName);
-            outputName = differentiator.getOutputName();
+            //Old Differentiator differentiator = new Differentiator(inputPath,fileName);
+            //Old outputName = differentiator.getOutputName();
+
+            // run the Unix "ps -ef" command
+            // using the Runtime exec method:
+
+            Process p = Runtime.getRuntime().exec( commandexternalcall );
+
+            BufferedReader stdInput = new BufferedReader(new
+                    InputStreamReader(p.getInputStream()));
+
+            BufferedReader stdError = new BufferedReader(new
+                    InputStreamReader(p.getErrorStream()));
+
+            // read the output from the command
+            System.out.println("Here is the standard output of the command:\n");
+            while ((s = stdInput.readLine()) != null) {
+                System.out.println(s);
+                csvLine = s;
+            }
+
+            // read any errors from the attempted command
+            System.out.println("Here is the standard error of the command (if any):\n");
+            while ((s = stdError.readLine()) != null) {
+                System.out.println(s);
+            }
+            //System.exit(0);
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
         }catch(IOException e){
             e.printStackTrace();
             outputName = "error";
         }
-
+        System.output.println(  outputName );
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/getCalculation/")
                 .path(outputName)
@@ -104,6 +153,11 @@ public class FileController {
                 file.getContentType(), file.getSize());
     }
 
+	
+	
+	
+	
+	
     /**
      * POST-API to <b>upload multiple</b> files to the <b>uploads</b> directory
      * @param files an array of files the user wants to upload to the system
