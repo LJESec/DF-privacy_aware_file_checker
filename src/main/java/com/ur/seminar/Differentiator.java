@@ -1,10 +1,12 @@
 package com.ur.seminar;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.json.simple.JSONObject;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.util.ArrayList;
+//import java.util.Base64;
 
 /**
  * This class contains the original algorithm created by Marcus
@@ -25,7 +27,7 @@ public class Differentiator {
 
             String resultPath = "./results/differentiator/";
             String[] splitted = this.fileName.split("/.");
-            outputName = "output_" + splitted[0] + ".csv";
+            outputName = "output_" + splitted[0] + "_evaluation.csv";   // for evaluation of different approaches only
 
             File input = this.inputFile;
             File path = new File("./directory");
@@ -34,7 +36,7 @@ public class Differentiator {
             int fileCount = files.length;
             File calculation = new File(resultPath  + outputName);
             for (int i = 0; i < fileCount; i++) {
-                if (files[i].isFile()) { //this line weeds out other directories/folders
+                if (files[i].isFile()) { //this line reads out other directories/folders
                     System.out.println(files[i]);
                     File file2 = files[i];
 
@@ -89,6 +91,17 @@ public class Differentiator {
                     pr.close();
                     br.close();
                     fr.close();
+
+
+
+
+
+
+
+
+
+
+
                     /*
                     double percentage = (double) (i + 1) / fileCount;
 
@@ -105,6 +118,81 @@ public class Differentiator {
                     statusWriter.close();*/
                 }
             }
+
+
+
+
+
+
+
+
+
+
+
+
+        resultPath = "./results/entropy_cosine_compare/";
+        String[] splitted2 = this.fileName.split("/.");
+        outputName = "output_" + splitted2[0] + "_final.csv";
+
+
+
+        // External call to python tool
+        String originalInput = this.fileName;
+        String encodedString = Base64.encodeBase64String(   originalInput.getBytes());
+        String csvLine = "";
+        String commandexternalcall = "sh /home/nodejs/df-privacy-checker_tools/DF-privacy-checker/integration_pipeline.sh " + encodedString ;
+        String s = null;
+        try {
+
+            // run the Unix "ps -ef" command
+            // using the Runtime exec method:
+
+            Process p = Runtime.getRuntime().exec( commandexternalcall );
+
+            BufferedReader stdInput = new BufferedReader(new
+                    InputStreamReader(p.getInputStream()));
+
+            BufferedReader stdError = new BufferedReader(new
+                    InputStreamReader(p.getErrorStream()));
+
+            // read the output from the command
+            System.out.println("Here is the standard output of the command:\n");
+            while ((s = stdInput.readLine()) != null) {
+                System.out.println(s);
+                csvLine = s;
+            }
+
+
+            // read any errors from the attempted command
+            System.out.println("Here is the standard error of the command (if any):\n");
+            while ((s = stdError.readLine()) != null) {
+                System.out.println(s);
+            }
+
+            //System.exit(0);
+        }
+        catch (IOException e) {
+            System.out.println("exception happened - here's what I know: ");
+            e.printStackTrace();
+            System.exit(-1);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
     /**
      * Calculates the frequency of a file

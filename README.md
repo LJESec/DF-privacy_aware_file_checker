@@ -14,11 +14,12 @@ The main concept of this approach is the entropy-based file comparison process. 
 
 ## Installation
 
-* First install git, python and java
+* First install git, python, dos2unix and java
 ```
  mkdir ~/df-privacy-checker_tools/
  cd ~/df-privacy-checker_tools/
  git clone https://github.com/LJESec/DF-privacy-checker 
+ dos2unix integration_pipeline.sh
 ```
 
 * Clone this project
@@ -26,6 +27,11 @@ The main concept of this approach is the entropy-based file comparison process. 
 cd ~/df-privacy-checker_tools/
 git clone https://github.com/LJESec/DF-privacy_aware_file_checker
 ```
+
+
+
+
+
 
 * start the Spring Boot Web-Server (IntelliJ IDEA)
 

@@ -9,6 +9,7 @@
         <module name="PSeminar_Schnittstellenerweiterung" />
         <module name="privacy_aware_file_checker_for_DF-master" />
         <module name="Schnittstellenerweiterung_PSeminar" />
+        <module name="DF-privacy_aware_file_checker" />
       </profile>
     </annotationProcessing>
   </component>
