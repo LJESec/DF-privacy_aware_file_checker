@@ -28,14 +28,9 @@ cd ~/df-privacy-checker_tools/
 git clone https://github.com/LJESec/DF-privacy_aware_file_checker
 ```
 
+* Start the Spring Boot Web-Server (e.g. via IntelliJ IDEA)
 
-
-
-
-
-* start the Spring Boot Web-Server (IntelliJ IDEA)
-
-* use the API (e.g. by using Postman)
+* Use the API (e.g. by using Postman)
 
 The web-service provides the following features:
 ![Overview of the developed interfaces](/images/img_tab1.png)
@@ -46,8 +41,10 @@ All interaction with the tool is performed via the REST interface. You can use p
 
 ![Usage](/images/usage1.png)
 
+The CSV result files of the assessed files (via the interface /uploadFile ) are stored in the folder /results/. Each row presents in the first column the name of a un-critical file and the second column gives the calculated cosine similarity to this file.
 
-A logical consistency check of the file comparison process can be triggered by the following steps:
+
+**A logical consistency check of the file comparison process can be triggered by the following steps:**
 
 
 * After the installation move your reference files (e.g.: Business emails containing offers, order confirmations or invoices) into the folder “~/df-privacy-checker_tools/DF-privacy-checker/”
