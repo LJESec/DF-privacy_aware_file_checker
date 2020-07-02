@@ -26,14 +26,14 @@ The main concept of this approach is the entropy-based file comparison process. 
 ```
  mkdir ~/df-privacy-checker_tools/
  cd ~/df-privacy-checker_tools/
- git clone https://github.com/LJESec/DF-privacy-checker 
+ git clone https://github.com/LudwigEnglbrecht/DF-privacy-checker 
  dos2unix integration_pipeline.sh
 ```
 
 * Clone this project (REST Web-Service)
 ```
 cd ~/df-privacy-checker_tools/
-git clone https://github.com/LJESec/DF-privacy_aware_file_checker
+git clone https://github.com/LudwigEnglbrecht/DF-privacy_aware_file_checker
 ```
 
 
